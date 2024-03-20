@@ -1,7 +1,9 @@
-name: Run index.js
-on: push
+name: Send a Daily Email
+on:
+  schedule:
+    - cron: '0 */24 * * *'
 jobs:
-  build-node:
+  send-email:
     runs-on: ubuntu-latest
     container: node:21
     steps:
@@ -9,4 +11,4 @@ jobs:
       - run: node --version
       - run: npm --version
       - run: npm install
-      - run: node index.js
+      - run: node daily-email.js
