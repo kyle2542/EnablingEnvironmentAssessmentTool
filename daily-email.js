@@ -3,13 +3,13 @@ const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'kyle.lyon2542@gmail.com',
-        pass: ''
+        user: 'testingemail2542@gmail.com',
+        pass: 'modd hlci zpkq unve'
     }
 });
 
 const mailOptions = {
-    from: 'kyle.lyon2542@gmail.com',
+    from: 'modd hlci zpkq unve',
     to: 'klyon2@ocdsb.ca',
     subject: 'Test Daily Email',
     text: 'Test daily email being sent for use with SageTeaEdge.'
