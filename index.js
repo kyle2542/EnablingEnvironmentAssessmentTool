@@ -9,7 +9,7 @@ let emailSubject = "SageTea Github Build Report";
 let buildReport = `Build Report for ${projectName}:\n\n`;
 
 try {
-    buildReport += `Built Binaries:\n${binaryPath}/${binary1}\n${binaryPath}/${binary2}\n${binaryPath}/${binary3}`;
+    buildReport += `Built Binaries:\n${binaryPath}/${binary1}\n${binaryPath}/${binary2}\n${binaryPath}/${binary3}\n\n`;
 
     buildReport += `Test for ${binary1} succeeded!`;
 } catch (e) {
