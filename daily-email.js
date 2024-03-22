@@ -10,8 +10,8 @@ const transporter = nodemailer.createTransport({
 
 const mailOptions = {
     from: 'modd hlci zpkq unve',
-    to: 'klyon2@ocdsb.ca',
-    subject: 'Test Daily Email',
+    to: 'support@sagetea.ai',
+    subject: 'SageTea Github Build Report',
     text: 'Test daily email being sent for use with SageTeaEdge.'
 };
 
@@ -22,3 +22,6 @@ transporter.sendMail(mailOptions, (error, info) => {
         console.log('Email sent:', info.response);
     }
 });
+
+// 9am every day
+// automate compiling code into a binary file

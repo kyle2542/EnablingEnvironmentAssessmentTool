@@ -11,5 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "nodemailer": "^6.9.13"
+  },
+  "devDependencies": {
+    "pkg": "^5.8.1"
   }
 }

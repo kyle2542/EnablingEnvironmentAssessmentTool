@@ -1,7 +1,10 @@
-name: Run index.js
-on: push
+name: Build, Test and Report
+on:
+  push:
+  schedule:
+      - cron: '0 9 * * *'
 jobs:
-  build-node:
+  build:
     runs-on: ubuntu-latest
     container: node:21
     steps:
@@ -9,5 +12,8 @@ jobs:
       - run: node --version
       - run: npm --version
       - run: npm install
-      - run: node index.js
-      - run: node daily-email.js
+      - run: npx pkg index.js -t node14-linux-x64,node14-win-x64,node14-macos-x64 --out-path dist/
+      - run: ./dist/index-linux # index-linux, index-macos, index-win.exe
+      - run: |
+          echo "Build Report:"
+          ls -lh dist/
