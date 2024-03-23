@@ -12,5 +12,5 @@ jobs:
       - run: node --version
       - run: npm --version
       - run: npm install
-      - run: ncc build -o build/lib ./index.js && npx pkg index.js -t node14-linux-x64,node14-win-x64,node14-macos-x64 --out-path dist/
+      - run: npx pkg index.js -t node14-linux-x64,node14-win-x64,node14-macos-x64 --out-path dist/
       - run: ./dist/index-linux # index-linux, index-macos, index-win.exe
