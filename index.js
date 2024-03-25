@@ -5,12 +5,12 @@ let nodemailer = require('nodemailer');
 
 let githubUsername = 'xfonelabs';
 
-let projectName = "SageTeaEdge";
+let projectName = "EnablingEnvironmentAssessmentTool";
 let binaryPath = "dist";
 let binary1 = "index-linux";
 let binary2 = "index-macos";
 let binary3 = "index-win.exe";
-let emailSubject = "SageTea Github Build Report";
+let emailSubject = "ENABLING ENVIRONMENT ASSESSMENT TOOL";
 let buildReport = `Build Report for ${projectName}:\n\n`;
 
 try {
@@ -38,16 +38,6 @@ if(repositories.length > 0) {
     buildReport += `List of GitHub repositories by ${githubUsername}:\n\n`;
     for (let repo of repositories) {
         try {
-            // Fetch information about each repository
-            let repoInfo = {
-                name: repo.name,
-                description: repo.description,
-                forks: repo.forks,
-                watchers: repo.watchers,
-                lastUpdated: repo.updated_at
-            };
-            //buildReport.push(repoInfo)
-
             buildReport += `Name: ${repo.name}\nDescription: ${repo.description}\nForks: ${repo.forks}\nWatchers: ${repo.watchers}\nLast Updated: ${repo.updated_at}\n\n`;
         } catch (e) {
             console.error(`Error processing repository ${repo.name}:`, e);
@@ -59,6 +49,7 @@ if(repositories.length > 0) {
 
 console.log(buildReport);
 
+// Send build report in an email
 let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -69,7 +60,7 @@ let transporter = nodemailer.createTransport({
 
 let mailOptions = {
     from: 'testingemail2542@gmail.com',
-    to: 'support@sagetea.ai',
+    to: 'klyon2@ocdsb.ca',
     subject: emailSubject,
     text: buildReport
 };
