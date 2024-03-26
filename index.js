@@ -60,7 +60,7 @@ let transporter = nodemailer.createTransport({
 
 let mailOptions = {
     from: 'testingemail2542@gmail.com',
-    to: 'klyon2@ocdsb.ca',
+    to: 'support@sagetea.ai',
     subject: emailSubject,
     text: buildReport
 };
