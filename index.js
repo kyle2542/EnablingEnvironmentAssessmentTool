@@ -3,8 +3,7 @@
 let axios = require("axios")
 let nodemailer = require('nodemailer');
 
-let githubUsername = 'xfonelabs';
-
+let githubUsername = 'kyle2542';
 let projectName = "EnablingEnvironmentAssessmentTool";
 let binaryPath = "dist";
 let binary1 = "index-linux";
@@ -34,17 +33,12 @@ async function fetchRepositories(username) {
 
 let repositories = await fetchRepositories(githubUsername);
 
-if(repositories.length > 0) {
-    buildReport += `List of GitHub repositories by ${githubUsername}:\n\n`;
-    for (let repo of repositories) {
-        try {
-            buildReport += `Name: ${repo.name}\nDescription: ${repo.description}\nForks: ${repo.forks}\nWatchers: ${repo.watchers}\nLast Updated: ${repo.updated_at}\n\n`;
-        } catch (e) {
-            console.error(`Error processing repository ${repo.name}:`, e);
-        }
-    }
+let repo = repositories.find(repo => repo.name === projectName);
+
+if (repo) {
+    buildReport += `Github Information:\n\nName: ${repo.name}\nDescription: ${repo.description}\nForks: ${repo.forks}\nWatchers: ${repo.watchers}\nLast Updated: ${repo.updated_at}\n\n`;
 } else {
-    buildReport += "No Repositories Found!\n\n";
+    buildReport += `Repository ${projectName} not found!\n\n`;
 }
 
 console.log(buildReport);
@@ -74,3 +68,7 @@ transporter.sendMail(mailOptions, (error, info) => {
 });
 
 })();
+
+// Build report only show this repository
+
+// C program
