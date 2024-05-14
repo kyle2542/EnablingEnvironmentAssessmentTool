@@ -5,6 +5,7 @@ let fs = require("fs");
 let exec = require("child_process");
 let nodemailer = require('nodemailer');
 
+let hostName = "xl1.xfonelabs.com";
 let githubUsername = 'kyle2542';
 let projectName = "EnablingEnvironmentAssessmentTool";
 let binaryPath = "dist";
@@ -12,7 +13,7 @@ let binary1 = "index-linux";
 let binary2 = "index-macos";
 let binary3 = "index-win.exe";
 let emailSubject = "ENABLING ENVIRONMENT ASSESSMENT TOOL";
-let buildReport = `Build Report for ${projectName}:\n\n`;
+let buildReport = `Build Report for ${projectName} from ${hostName}:\n\n`;
 
 try {
     buildReport += `Built Binaries:\n${binaryPath}/${binary1}\n${binaryPath}/${binary2}\n${binaryPath}/${binary3}\n\n`;
@@ -94,3 +95,5 @@ transporter.sendMail(mailOptions, (error, info) => {
 });
 
 })();
+
+// ps -ef | grep startup_testing
